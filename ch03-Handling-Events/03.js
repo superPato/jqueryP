@@ -20,5 +20,11 @@ $(document).ready(function () {
         $('#switcher button').removeClass('selected');
         $(this).addClass('selected');
     });
+
+    // el selector es más específico, por esto dejan de funcionar
+    // los botones
+    $('#switcher-narrow, #switcher-large').click(function () {
+        $('#switcher').off('click');
+    });
     
 });
