@@ -1,10 +1,12 @@
 $(document).ready(function () {
 
     $('#switcher').click(function (event) {
-        $('#switcher button').toggleClass('hidden');
+        if (! $(event.target).is('button')) {
+            $('#switcher button').toggleClass('hidden');
+        }
     });
 
-    $('#switcher h3').hover(function () {
+    $('#switcher').hover(function () {
         $(this).addClass('hover');
     }, function () {
         $(this).removeClass('hover');
@@ -18,7 +20,6 @@ $(document).ready(function () {
             $('body').removeClass().addClass(bodyClass);
             $('#switcher button').removeClass('selected');
             $(event.target).addClass('selected');
-            event.stopProtagation();
         }
     });
     
