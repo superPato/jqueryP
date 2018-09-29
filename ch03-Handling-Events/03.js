@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('#switcher').click(function (event) {
+    $('#switcher').on('click.collapse', function (event) {
         if (! $(event.target).is('button')) {
             $('#switcher button').toggleClass('hidden');
         }
@@ -21,10 +21,8 @@ $(document).ready(function () {
         $(this).addClass('selected');
     });
 
-    // el selector es más específico, por esto dejan de funcionar
-    // los botones
     $('#switcher-narrow, #switcher-large').click(function () {
-        $('#switcher').off('click');
+        $('#switcher').off('click.collapse');
     });
     
 });
