@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('#switcher h3').click(function () {
+    $('#switcher').click(function () {
         $('#switcher button').toggleClass('hidden');
     });
 
