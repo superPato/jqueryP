@@ -24,3 +24,13 @@ Uso de las funciones incorporadas de delegación de eventos
 	Debido a que la delegación de eventos puede ser útil en muchas situaciones, jQuery incluye un conjunto
 	de herramientas para ayudar a los desarrolladores a usar esta técnica. El método .on () ya lo tenemos
 	discutido puede realizar delegación de eventos cuando se proporciona con los parámetros adecuados:
+
+	$('#switcher').on('click', 'button', function (event) {
+
+	});
+
+	Cuando se proporciona una expresión de selector como segundo argumento de.on(), 
+	jQuery vincula el controlador de clic al objeto #switcher, pero compara event.target 
+	con la expresión de selector, en este caso, 'botón'.Si coincide, jQuery asigna this 
+	palabra clave al elemento coincidente. De lo contrario, el controlador de eventos no 
+	se ejecuta en absoluto.
