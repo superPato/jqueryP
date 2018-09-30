@@ -27,7 +27,19 @@ $(document).ready(function () {
         }
     });
 
-    // $('#switcher').trigger('click');
     $('#switcher').click();
+
+    var triggers = {
+        D: 'default',
+        N: 'narrow',
+        L: 'large'
+    };
+    $(document).keyup(function (event) {
+        // event.which devuelve el codigo ASCII de la tecla que se presionó
+        var key = String.fromCharCode(event.which);
+        if (key in triggers) {
+            $('#switcher-' + triggers[key]).click();
+        }
+    })
     
 });
