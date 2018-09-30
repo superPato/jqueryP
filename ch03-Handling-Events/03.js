@@ -1,11 +1,13 @@
 $(document).ready(function () {
 
+    // Enable hover effect on the style switcher
     $('#switcher').hover(function () {
         $(this).addClass('hover');
     }, function () {
         $(this).removeClass('hover');
     });
 
+    // Allow the style switcher to expand and collapse
     var toggleSwitcher = function (event) {
         if (! $(event.target).is('button')) {
             $('#switcher button').toggleClass('hidden');
@@ -13,33 +15,45 @@ $(document).ready(function () {
     };
     $('#switcher').on('click', toggleSwitcher);
 
-    $('#switcher-default').addClass('selected');
-
-    $('#switcher').on('click', 'button', function (event) {
-        var bodyClass = event.target.id.split('-')[1];
-        $('body').removeClass().addClass(bodyClass);
-        $('#switcher button').removeClass('selected');
-        $(this).addClass('selected');
-        
-        $('#switcher').off('click', toggleSwitcher);
-        if (this.id == 'switcher-default') {
-            $('#switcher').on('click', toggleSwitcher);
-        }
-    });
-
+    // Simulate a click so we start in a collapse state
     $('#switcher').click();
 
+    // The setBodyClass() function changes the page style
+    // The style switcher state is also updated
+    var setBodyClass = function (className) {
+        $('body').removeClass().addClass(className);
+        $('#switcher button').removeClass('selected');
+        $('#switcher-' + className).addClass('selected');
+        
+        $('#switcher').off('click', toggleSwitcher);
+        if (className == 'default') {
+            $('#switcher').on('click', toggleSwitcher);
+        }
+    };
+    // Gegin with the switcher-default button "selected"
+    $('#switcher-default').addClass('selected');
+
+    // Map key codes to their corresponding buttons to click
     var triggers = {
         D: 'default',
         N: 'narrow',
         L: 'large'
     };
-    $(document).keyup(function (event) {
-        // event.which devuelve el codigo ASCII de la tecla que se presionó
-        var key = String.fromCharCode(event.which);
-        if (key in triggers) {
-            $('#switcher-' + triggers[key]).click();
+
+    // Call setBodyClass() when a buton is clicked
+    $('#switcher').click(function (event) {
+        if ($(event.target).is('button')) {
+            var bodyClass = event.target.id.split('-')[1];
+            setBodyClass(bodyClass);
         }
-    })
+    });
+
+    // Call setBodyClass() when a key is pressed
+    $(document).keyup(function (event) {
+        var key = String.fromCharCode(event.keyCode);
+        if (key in triggers) {
+            setBodyClass(triggers[key]);
+        }
+    });
     
 });
