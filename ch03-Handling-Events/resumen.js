@@ -34,3 +34,10 @@ Uso de las funciones incorporadas de delegación de eventos
 	con la expresión de selector, en este caso, 'botón'.Si coincide, jQuery asigna this 
 	palabra clave al elemento coincidente. De lo contrario, el controlador de eventos no 
 	se ejecuta en absoluto.
+
+Desvincular manejador de eventos
+	$('#switcher').off('click'); // desvicula todos los manejadores
+	$('#switcher').off('click', handleEvent); // desvincula un único manejador
+
+Reenlzar manejador de eventos
+	$('#switcher').on('click', handleEvent);
