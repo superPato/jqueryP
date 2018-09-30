@@ -6,35 +6,25 @@ $(document).ready(function () {
         $(this).removeClass('hover');
     });
 
+    var toggleSwitcher = function (event) {
+        if (! $(event.target).is('button')) {
+            $('#switcher button').toggleClass('hidden');
+        }
+    };
+    $('#switcher').on('click', toggleSwitcher);
+
     $('#switcher-default').addClass('selected');
-    //
+
     $('#switcher').on('click', 'button', function (event) {
         var bodyClass = event.target.id.split('-')[1];
         $('body').removeClass().addClass(bodyClass);
         $('#switcher button').removeClass('selected');
         $(this).addClass('selected');
-    });
-
-    var toggleSwitcher = function (event) {
-        if (! $(event.target).is('button')) {
-            console.log("Se ejecuto");
-            $('#switcher button').toggleClass('hidden');
+        
+        $('#switcher').off('click', toggleSwitcher);
+        if (this.id == 'switcher-default') {
+            $('#switcher').on('click', toggleSwitcher);
         }
-    };
-    // Se enlaza el manejador de eventos al swicher
-    // cuando se ejecuta el script
-    $('#switcher').on('click.collapse', toggleSwitcher);
-
-    $('#switcher-narrow, #switcher-large').click(function () {
-        $('#switcher').off('click.collapse');
-    });
-
-    // Si se da clic por segunda vez, sin haberse dado click
-    // en #switcher-narrow o #switcher-large, se enlaza un
-    // segundo manejador de eventos para #switcher. Por lo tanto
-    // toggleSwitcher se ejecutara dos veces.
-    $('#switcher-default').click(function () {
-        $('#switcher').on('click.collapse', toggleSwitcher);
     });
     
 });
