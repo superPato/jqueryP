@@ -20,4 +20,11 @@ $(document).ready(function () {
 		$speech.css('fontSize', num + 'px');
 	});
 
+	$('p').eq(1).hide();
+	$('a.more').click(function (event) {
+		event.preventDefault();
+		$('p').eq(1).show();
+		$(this).hide();
+	});
+
 });
