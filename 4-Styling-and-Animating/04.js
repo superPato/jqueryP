@@ -50,7 +50,16 @@ $(document).ready(function () {
 		$switcher
 			.css({position: 'relative'})
 			.fadeTo('fast', 0.5)
-			.animate({left: paraWidth - switcherWidth}, 'slow')
+			.animate({
+				left: paraWidth - switcherWidth
+			}, 
+			// El segundo argumento, un objeto de opciones, proporciona la opción 
+			// de cola, que cuando se establece en falso hace que la animación 
+			// comience simultáneamente con la anterior.
+			{
+				duration: 'slow',
+				queue: false
+			})
 			.fadeTo('slow', 1.0)
 			.slideUp('slow')
 			.slideDown('slow');

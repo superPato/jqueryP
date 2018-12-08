@@ -93,3 +93,15 @@ $switcher
 	.animate({left: paraWidth - switcherWidth}, 'slow')
 	.animate({height: '+=20px'}, 'slow')
 	.animate({borderWidth: '5px'}, 'slow');
+
+Sin pasar por la cola
+Pero, ¿qué pasa si queremos mover la etiqueta <div> al lado derecho al mismo 
+tiempo que se desvanece hasta la mitad de la opacidad? Si las dos animaciones 
+ocurrieran a la misma velocidad, simplemente podríamos combinarlas en un solo 
+método .animate (). Pero, en este ejemplo, el fundido usa la velocidad 
+'fast', mientras que el movimiento hacia el lado derecho usa la velocidad 
+'slow'. Aquí es donde la segunda forma del método .animate () es útil:
+
+El segundo argumento, un objeto de opciones, proporciona la opción de cola, 
+que cuando se establece en falso hace que la animación comience simultáneamente 
+con la anterior.
