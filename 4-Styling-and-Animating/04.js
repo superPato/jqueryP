@@ -47,13 +47,11 @@ $(document).ready(function () {
 		var $switcher = $(this).parent();
 		var switcherWidth = $switcher.outerWidth();
 
-		$switcher.css({
-			position: 'relative'
-		}).animate({
-			borderWidth: '5px',
-			left: paraWidth - switcherWidth,
-			height: '+=20px'
-		}, 'slow');
+		$switcher
+			.css({position: 'relative'})
+			.animate({left: paraWidth - switcherWidth}, 'slow')
+			.animate({height: '+=20px'}, 'slow')
+			.animate({borderWidth: '5px'}, 'slow');
 	});
 
 });

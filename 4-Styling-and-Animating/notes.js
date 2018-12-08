@@ -76,3 +76,20 @@ preenvasados como como .slideToggle ().
 Además, no solo tenemos a nuestra disposición las propiedades de estilo 
 utilizadas para los métodos de efectos abreviados, sino también propiedades 
 numéricas de CSS como left, top, fontSize, margin, padding y borderWidth.
+
+
+Efectos simultáneos versus en cola
+El método .animate (), como acabamos de descubrir, es muy útil para crear 
+efectos simultáneos que afectan a un conjunto particular de elementos. Puede 
+haber ocasiones, sin embargo, cuando deseamos poner en cola nuestros efectos 
+para que se produzcan uno tras otro.
+
+Trabajando con un solo conjunto de elementos.
+Al aplicar múltiples efectos al mismo conjunto de elementos, la cola se logra 
+fácilmente encadenando esos efectos.
+
+$switcher
+	.css({position: 'relative'})
+	.animate({left: paraWidth - switcherWidth}, 'slow')
+	.animate({height: '+=20px'}, 'slow')
+	.animate({borderWidth: '5px'}, 'slow');
