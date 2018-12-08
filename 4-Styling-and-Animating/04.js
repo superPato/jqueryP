@@ -49,9 +49,11 @@ $(document).ready(function () {
 
 		$switcher
 			.css({position: 'relative'})
+			.fadeTo('fast', 0.5)
 			.animate({left: paraWidth - switcherWidth}, 'slow')
-			.animate({height: '+=20px'}, 'slow')
-			.animate({borderWidth: '5px'}, 'slow');
+			.fadeTo('slow', 1.0)
+			.slideUp('slow')
+			.slideDown('slow');
 	});
 
 });
