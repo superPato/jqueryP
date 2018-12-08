@@ -20,11 +20,20 @@ $(document).ready(function () {
 		$speech.css('fontSize', num + 'px');
 	});
 
-	$('p').eq(1).hide();
+	//
+	var $firstPara = $('p').eq(1);
+	$firstPara.hide();
+
 	$('a.more').click(function (event) {
 		event.preventDefault();
-		$('p').eq(1).slideDown('slow'); // slideUp()
-		$(this).hide();
+
+		if ($firstPara.is(':hidden')) {
+			$firstPara.fadeIn('slow');
+			$(this).text('read less');
+		} else {
+			$firstPara.fadeOut('slow');
+			$(this).text('read more');
+		}
 	});
 
 });
