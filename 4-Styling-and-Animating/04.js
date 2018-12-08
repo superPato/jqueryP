@@ -41,4 +41,19 @@ $(document).ready(function () {
 		}
 	});
 
+	// Animate switcher
+	$('div.label').click(function () {
+		var paraWidth = $('div.speech p').outerWidth();
+		var $switcher = $(this).parent();
+		var switcherWidth = $switcher.outerWidth();
+
+		$switcher.css({
+			position: 'relative'
+		}).animate({
+			borderWidth: '5px',
+			left: paraWidth - switcherWidth,
+			height: '+=20px'
+		}, 'slow');
+	});
+
 });
