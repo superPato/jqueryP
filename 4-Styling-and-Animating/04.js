@@ -27,7 +27,7 @@ $(document).ready(function () {
 	$('a.more').click(function (event) {
 		event.preventDefault();
 
-		$firstPara.slideToggle('slow'); // fadeToggle()
+		$firstPara.animate({ height: 'toggle'}, 'slow');
 		var $link = $(this);
 
 		if ($link.text() == 'read more') {
