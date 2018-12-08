@@ -17,7 +17,7 @@ $(document).ready(function () {
 				num = parseFloat(defaultSize);
 		}
 
-		$speech.css('fontSize', num + 'px');
+		$speech.animate({fontSize: num + 'px'}, 'slow');
 	});
 
 	//
@@ -27,7 +27,11 @@ $(document).ready(function () {
 	$('a.more').click(function (event) {
 		event.preventDefault();
 
-		$firstPara.animate({ height: 'toggle'}, 'slow');
+		$firstPara.animate({ 
+			opacity: 'toggle',
+			height: 'toggle'
+		}, 'slow');
+
 		var $link = $(this);
 
 		if ($link.text() == 'read more') {

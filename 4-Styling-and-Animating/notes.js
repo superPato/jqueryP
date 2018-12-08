@@ -67,3 +67,12 @@ la mezcla.
 		step: callback
 	}
 );
+
+el método .animate () proporciona valores abreviados convenientes para las 
+propiedades CSS, como 'mostrar', 'ocultar' y 'alternar', para facilitar el 
+proceso cuando queremos emular el comportamiento de los métodos de efectos 
+preenvasados como como .slideToggle ().
+
+Además, no solo tenemos a nuestra disposición las propiedades de estilo 
+utilizadas para los métodos de efectos abreviados, sino también propiedades 
+numéricas de CSS como left, top, fontSize, margin, padding y borderWidth.
