@@ -59,8 +59,15 @@ $(document).ready(function () {
 			})
 			.fadeTo('slow', 1.0)
 			.slideUp('slow')
-			// its occurs immediately upon the click.
-			.css({backgroundColor: '#f00'})
+			// el método .queue () agrega la función a la cola de 
+			// efectos para que se ejecute en los elementos coincidentes.
+			.queue(function (next) {
+				$switcher.css({backgroundColor: '#f00'});
+				// La inclusión de esta llamada a la función next() permite 
+				// a la cola de animación continuar donde la dejó y completar
+				// la cadena con la siguiente línea.
+				next();
+			})
 			.slideDown('slow');
 	});
 
