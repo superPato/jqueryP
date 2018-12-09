@@ -105,3 +105,10 @@ método .animate (). Pero, en este ejemplo, el fundido usa la velocidad
 El segundo argumento, un objeto de opciones, proporciona la opción de cola, 
 que cuando se establece en falso hace que la animación comience simultáneamente 
 con la anterior.
+
+Efectos de colas manualmente
+Una observación final sobre los efectos de la puesta en cola en un único conjunto 
+de elementos es que la puesta en cola no se aplica automáticamente a otros métodos
+que no tienen efectos, como .css (). Supongamos que queremos cambiar el color de 
+fondo de <div id = "switcher"> a rojo después del método .slideUp (), pero antes 
+del método slideDown ().

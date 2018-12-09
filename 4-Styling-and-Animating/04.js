@@ -53,15 +53,14 @@ $(document).ready(function () {
 			.animate({
 				left: paraWidth - switcherWidth
 			}, 
-			// El segundo argumento, un objeto de opciones, proporciona la opción 
-			// de cola, que cuando se establece en falso hace que la animación 
-			// comience simultáneamente con la anterior.
 			{
 				duration: 'slow',
 				queue: false
 			})
 			.fadeTo('slow', 1.0)
 			.slideUp('slow')
+			// its occurs immediately upon the click.
+			.css({backgroundColor: '#f00'})
 			.slideDown('slow');
 	});
 
