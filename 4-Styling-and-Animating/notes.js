@@ -112,3 +112,10 @@ de elementos es que la puesta en cola no se aplica automáticamente a otros mét
 que no tienen efectos, como .css (). Supongamos que queremos cambiar el color de 
 fondo de <div id = "switcher"> a rojo después del método .slideUp (), pero antes 
 del método slideDown ().
+
+Haciendo cola con devoluciones de llamada
+Para permitir la puesta en cola de efectos en diferentes elementos, jQuery proporciona
+una función de devolución de llamada para cada método de efecto. Como hemos visto con
+los controladores de eventos y con el método .queue (), las devoluciones de llamada
+son simplemente funciones pasadas como argumentos de método. En el caso de los efectos,
+aparecen como el último argumento del método.

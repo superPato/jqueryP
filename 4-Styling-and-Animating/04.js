@@ -58,10 +58,8 @@ $(document).ready(function () {
 				queue: false
 			})
 			.fadeTo('slow', 1.0)
-			.slideUp('slow')
-			.queue(function (next) {
+			.slideUp('slow', function () {
 				$switcher.css({backgroundColor: '#f00'});
-				next();
 			})
 			.slideDown('slow');
 	});
