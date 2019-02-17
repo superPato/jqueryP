@@ -25,3 +25,61 @@ $('selector').attr({
         return 'wikilink-' + index;
     }
 });
+
+// DOM element properties
+// As mentioned briefly previously, there is a subtle distinction between 
+// HTML attributes and DOM properties. Attributes are the values given in 
+// quotation marks in the HTML source for the page, while properties are 
+// the values as accessed by JavaScript. 
+
+// Some DOM properties, such as nodeName , nodeType , selectedIndex , 
+// and childNodes , have no equivalent attribute, and therefore are not accessible via .attr() .
+
+// We can get and set properties from jQuery using the .prop() method:
+// Get the current value of the "checked" property
+var currentlyChecked = $('.my-checkbox').prop('checked');
+// Set a new value for the "checked" property
+$('.my-checkbox').prop('checked', false);
+
+// The value of form controls
+// Perhaps the most troublesome difference between attributes and properties arises
+// when trying to get or set the value of a form control. For text inputs, the value
+// attribute is equivalent to the defaultValue property, not the value property. For
+// select elements, the value is usually obtained via the element's selectedIndex
+// property or the selected property of its option elements.
+
+// Because of these discrepancies, we should avoid using .attr() —and, in the case of
+// select elements, even .prop() —to get or set form element values. Instead, we can
+// use the .val() method, which jQuery provides for these occasions:
+
+// Get the current value of a text input
+var inputValue = $('#my-input').val();
+// Get the current value of a select list
+var selectValue = $('#my-select').val();
+//Set the value of a single select list
+$('#my-single-select').val('value3');
+// Set the value of a multiple select list
+$('#my-multi-select').val(['value1', 'value2']);
+
+// As with .attr() and .prop() , .val() can take a function for its setter argument.
+// With its multi-purpose .val() method, jQuery yet again makes developing for the
+// web much easier.
+
+
+// DOM tree manipulation
+// The $() function revisited
+// This isn't all that the $() function can do, however. It also boasts a feature so
+// powerful that it can change not only the visual appearance but also the actual
+// contents of a page. Simply by passing a snippet of HTML code to the function, we
+// can create an entirely new DOM structure from thin air.
+
+// Creating new elements
+$('<a href="#top">back to top</a>');
+
+// Inserting new elements
+$('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+
+// • .insertBefore() adds content outside of and before existing elements
+// • .prependTo() adds content inside of and before existing elements
+// • .appendTo() adds content inside of and after existing elements
+// • .insertAfter() adds content outside of and after existing elements
