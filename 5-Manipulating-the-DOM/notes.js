@@ -83,3 +83,6 @@ $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
 // • .prependTo() adds content inside of and before existing elements
 // • .appendTo() adds content inside of and after existing elements
 // • .insertAfter() adds content outside of and after existing elements
+
+// Moving elements
+$('selector').insertBefore('destin');
