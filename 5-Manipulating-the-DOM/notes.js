@@ -86,3 +86,18 @@ $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
 
 // Moving elements
 $('selector').insertBefore('destin');
+
+
+// Using inverted insertion methods
+
+// Each of the insertion methods, such as .insertBefore() or .appendTo() , has a
+// corresponding inverted method. The inverted methods perform exactly the same
+// task as the standard ones, but the subject and target are reversed. For example:
+$('<p>Hello</p>').appendTo('#container');
+// is the same as:
+$('#container').append('<p>Hello</p>');
+
+// Insertion method callbacks
+// The inverted insertion methods can accept a function as an argument,
+// much like .attr() and .css() can. This function is invoked once per
+// target element, and should return the HTML string to be inserted.
