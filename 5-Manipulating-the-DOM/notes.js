@@ -133,3 +133,47 @@ $('div.chapter p:eq(0)').clone().insertBefore('div.chapter');
 // included tags are ignored, and HTML entities are translated into plain characters.
 // When it sets content, special characters such as < are translated into their HTML
 // entity equivalents:
+
+// DOM manipulation methods in a nutshell
+// • To create new elements from HTML, use the $() function
+// • To insert new elements inside every matched element, use the
+//   following functions:
+
+	° .append()
+	° .appendTo()
+	° .prepend()
+	° .prependTo()
+
+// • To insert new elements adjacent to every matched element, use the
+//   following functions:
+
+	° .after()
+	° .insertAfter()
+	° .before()
+	° .insertBefore()
+
+// • To insert new elements around every matched element, use the
+//   following functions:
+
+	° .wrap()
+	° .wrapAll()
+	° .wrapInner()
+
+// • To replace every matched element with new elements or text, use the
+//   following functions:
+
+	° .html()
+	° .text()
+	° .replaceAll()
+	° .replaceWith()
+
+// • To remove elements inside every matched element, use the
+//   following function:
+
+	° .empty()
+
+// • To remove every matched element and descendants from the document
+//   without actually deleting them, use the following functions:
+
+	° .remove()
+	° .detach()
