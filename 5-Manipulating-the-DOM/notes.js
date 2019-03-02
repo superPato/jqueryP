@@ -101,3 +101,25 @@ $('#container').append('<p>Hello</p>');
 // The inverted insertion methods can accept a function as an argument,
 // much like .attr() and .css() can. This function is invoked once per
 // target element, and should return the HTML string to be inserted.
+
+// Copying elements
+// For copying elements, jQuery's .clone() method is just what we need; it takes
+// any set of matched elements and creates a copy of them for later use. As in the case
+// of the $() function's element-creation process we explored earlier in this chapter,
+// the copied elements will not appear in the document until we apply one of the
+// insertion methods.
+
+// For example, the following line creates a copy of the first paragraph inside <div
+// class="chapter"> :
+$('div.chapter p:eq(0)').clone();
+// This alone is not enough to change the content of the page. We can make the cloned
+// paragraph appear before <div class="chapter"> with an insertion method:
+$('div.chapter p:eq(0)').clone().insertBefore('div.chapter');
+
+// Clone with events
+// The .clone() method, by default, does not copy any events
+// that are bound to the matching element or any of its descendants.
+// However, it can take a single Boolean parameter that, when set to true
+// (.clone(true)), clones events as well. This convenient event cloning
+// allows us to avoid having to deal with manually rebinding events, as
+// was discussed in Chapter 3, Handling Events.

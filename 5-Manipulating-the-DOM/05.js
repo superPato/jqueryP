@@ -33,4 +33,15 @@ $(document).ready(function () {
             ].join(''))
             .wrap('<li id="footnote-' + (index + 1) + '"></li>');
     });
+
+    // Cloning for pull quotes
+    $('span.pull-quote').each(function (index) {
+        var $parentParagraph = $(this).parent('p');
+        $parentParagraph.css('position', 'relative');
+
+        var $clonedCopy = $(this).clone();
+        $clonedCopy
+            .addClass('pulled')
+            .prependTo($parentParagraph);
+    })
 });
