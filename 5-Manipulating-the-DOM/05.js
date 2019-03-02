@@ -44,7 +44,8 @@ $(document).ready(function () {
             .addClass('pulled')
             .find('span.drop')
                 .html('&hellip;')
-            .end() // operamos en ellos y luego regresamos a la cita de extracción al llamar a .end ().
+            .end() 
+            .text($clonedCopy.text()) // text() gets only text without tags html
             .prependTo($parentParagraph);
     })
 });

@@ -126,3 +126,10 @@ $('div.chapter p:eq(0)').clone().insertBefore('div.chapter');
 
 // When called without arguments, .html() returns a string representation of the
 // HTML entity inside the matched element.
+
+// Like .html() , the .text() method can either retrieve the content of the matched
+// element or replace its content with a new string. Unlike .html() , however, .text()
+// always gets or sets a plain text string. When .text() retrieves content, all of the
+// included tags are ignored, and HTML entities are translated into plain characters.
+// When it sets content, special characters such as < are translated into their HTML
+// entity equivalents:
