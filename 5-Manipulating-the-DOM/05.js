@@ -42,6 +42,9 @@ $(document).ready(function () {
         var $clonedCopy = $(this).clone();
         $clonedCopy
             .addClass('pulled')
+            .find('span.drop')
+                .html('&hellip;')
+            .end() // operamos en ellos y luego regresamos a la cita de extracción al llamar a .end ().
             .prependTo($parentParagraph);
     })
 });

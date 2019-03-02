@@ -123,3 +123,6 @@ $('div.chapter p:eq(0)').clone().insertBefore('div.chapter');
 // (.clone(true)), clones events as well. This convenient event cloning
 // allows us to avoid having to deal with manually rebinding events, as
 // was discussed in Chapter 3, Handling Events.
+
+// When called without arguments, .html() returns a string representation of the
+// HTML entity inside the matched element.
