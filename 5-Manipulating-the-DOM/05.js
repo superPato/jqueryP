@@ -9,8 +9,31 @@ $(document).ready(function () {
         }
     });
 
-    $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+    // Exercise 1
+    $('<a href="#top">back to top</a>')
+        .insertAfter('div.chapter p:nth-child(n+4)')
+        .click(function () { // Exercise 2
+            var $currentElement = $(this);
+
+            if ($currentElement.next().text() != 'You were here.') {
+                $currentElement.after('<p>You were here.</p>');
+            }
+        });
     $('<a id="top"></a>').prependTo('body');
+
+    // Exercise 3 and Exercise 4
+    $('#f-author').on('click', function () {
+        $element = $(this);
+
+        ($element.has('b').length == 1) 
+            ? $element.text($element.text())
+            : $element.wrapInner('<b></b>');
+    });
+
+    // Exercise 5
+    $('.chapter p').each(function (element) {
+        this.className = this.className + ' inhabitants';
+    });
 
     var $notes = $('<ol id="notes"></ol>').insertBefore('#footer');
     $('span.footnote').each(function (index) {
