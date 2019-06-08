@@ -40,23 +40,21 @@ $(document).ready(function () {
         event.preventDefault();
         $.get('d.xml', function (data) {
             $('#dictionary').empty();
-            $(data).find('entry').each(function () {
+            $(data).find('entry:has(quote[author])').each(function () {
                 var $entry = $(this);
                 var html = '<div class="entry">';
                 html += '<h3 class="term">' + $entry.attr('term') + '</h3>';
                 html += '<div class="definition">';
                 html += $entry.find('definition').text();
+
                 var $quote = $entry.find('quote');
-                if ($quote.length) {
-                    html += '<div class="quote">';
-                    $quote.find('line').each(function () {
-                        html += '<div class="quote-line">' + $(this).text() + '</div>';
-                    });
-                    if ($quote.attr('author')) {
-                        html += '<div class="quote-author">' + $quote.attr('author') + '</div>';
-                    }
-                    html += '</div>';
-                }
+                html += '<div class="quote">';
+                $quote.find('line').each(function () {
+                    html += '<div class="quote-line">' + $(this).text() + '</div>';
+                });
+                html += '<div class="quote-author">' + $quote.attr('author') + '</div>';
+                html += '</div>';
+
                 html += '</div>';
                 html += '</div>';
                 $('#dictionary').append($(html));
