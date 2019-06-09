@@ -11,3 +11,6 @@
 $(data).find('entry:has(quote[author])').each(function() { 
     // process
 });
+
+// We can further simplify the code by using the .load() method, which uses POST 
+// by default when it is supplied with a simple object containing data to pass along:
