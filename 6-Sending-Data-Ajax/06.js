@@ -66,7 +66,7 @@ $(document).ready(function () {
     $('#letter-e a').click(function(event) {
         event.preventDefault();
         var requestData = { term: $(this).text() };
-        $.get('e.php', requestData, function(data) {
+        $.post('e.php', requestData, function(data) {
             $('#dictionary').html(data);
         });
     });
