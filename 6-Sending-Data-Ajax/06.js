@@ -60,5 +60,14 @@ $(document).ready(function () {
                 $('#dictionary').append($(html));
             });
         });
-    })
+    });
+
+
+    $('#letter-e a').click(function(event) {
+        event.preventDefault();
+        var requestData = { term: $(this).text() };
+        $.get('e.php', requestData, function(data) {
+            $('#dictionary').html(data);
+        });
+    });
 })
