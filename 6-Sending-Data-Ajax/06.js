@@ -68,4 +68,12 @@ $(document).ready(function () {
         var requestData = { term: $(this).text() };
         $('#dictionary').load('e.php', requestData);
     });
+
+    $('#letter-f form').submit(function (event) {
+        event.preventDefault();
+        var formValues = $(this).serialize();
+        $.get('f.php', formValues, function (data) {
+            $('#dictionary').html(data);
+        });
+    });
 })
