@@ -11,7 +11,9 @@ $(document).ready(function () {
 
     $('#letter-a a').click(function(event) {
         event.preventDefault();
-        $('#dictionary').load('a.html');
+        $('#dictionary').hide().load('a.html', function () {
+            $(this).fadeIn();
+        });
     });
 
     $('#letter-b a').click(function (event) {
