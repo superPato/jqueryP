@@ -77,7 +77,13 @@ $(document).ready(function () {
     $('#letter-e a').click(function(event) {
         event.preventDefault();
         var requestData = { term: $(this).text() };
-        $('#dictionary').load('e.php', requestData);
+        $.get('z.php', requestData, function(data) {
+            $('#dictionary').html(data);
+        }).fail(function (jqXHR) {
+            $('#dictionary')
+                .html('An error ocurred: ' + jqXHR.status)
+                .append(jqXHR.responseText);
+        })
     });
 
     $('#letter-f form').submit(function (event) {

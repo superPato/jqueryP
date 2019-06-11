@@ -29,3 +29,24 @@ $(data).find('entry:has(quote[author])').each(function() {
 // are global, in that they are called when any Ajax communication occurs, 
 // regardless of what code initiates it. And all of them, like the .ready() 
 // method, can only be bound to $(document).
+
+
+// Error handling
+// Aside from using the global .ajaxError() method, we can react to errors by
+// capitalizing on jQuery's deferred object system. We will discuss deferred objects
+// more fully in Chapter 11, Advanced Effects, but for now we'll simply note that we
+// can chain .done(), .always(), and .fail() methods to any Ajax function except
+// .load(), and use these methods to attach the relevant callbacks. For example, if we
+// take the code from Listing 6.16 and change the URL to one that doesn't exist, we can
+// test the .fail() method:
+
+// The .status property contains a numeric code provided by the server. These codes
+// are defined in the HTTP specification, and when a .fail() handler is triggered, they
+// will represent an error condition such as:
+
+// Response code       Description
+// 400                 Bad request
+// 401                 Unauthorized
+// 403                 Forbidden
+// 404                 Not found
+// 500                 Internal server error
