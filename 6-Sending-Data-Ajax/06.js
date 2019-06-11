@@ -1,5 +1,14 @@
 $(document).ready(function () {
 
+    var $loading = $('<div id="loading">Loading...</div>')
+        .insertBefore('#dictionary');
+
+    $(document).ajaxStart(function () {
+        $loading.show();
+    }).ajaxStop(function () {
+        $loading.hide();
+    });
+
     $('#letter-a a').click(function(event) {
         event.preventDefault();
         $('#dictionary').load('a.html');
