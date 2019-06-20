@@ -93,4 +93,9 @@ $(document).ready(function () {
             $('#dictionary').html(data);
         });
     });
+
+
+    $('h3.term').click(function () {
+        $(this).siblings('.definition').slideToggle();
+    })
 })

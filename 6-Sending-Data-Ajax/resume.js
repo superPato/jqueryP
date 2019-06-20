@@ -50,3 +50,14 @@ $(data).find('entry:has(quote[author])').each(function() {
 // 403                 Forbidden
 // 404                 Not found
 // 500                 Internal server error
+
+
+// Ajax and events
+
+// When a term is clicked, this code finds siblings of the element that have a class of
+// definition, and slides them up or down as appropriate.
+
+// All seems in order, but a click does nothing with this code. Unfortunately, the terms
+// have not yet been added to the document when we attach the click handlers. Even
+// if we managed to attach click handlers to these items, once we clicked on a different
+// letter the handlers would no longer be attached.
