@@ -61,3 +61,13 @@ $(data).find('entry:has(quote[author])').each(function() {
 // have not yet been added to the document when we attach the click handlers. Even
 // if we managed to attach click handlers to these items, once we clicked on a different
 // letter the handlers would no longer be attached.
+
+// This is a common problem with areas of a page populated by Ajax. A popular
+// solution is to rebind handlers each time the page area is refreshed. This can be
+// cumbersome, however, as the event-binding code needs to be called each time
+// anything causes the DOM structure of the page to change.
+
+// An often superior alternative was introduced in Chapter 3, Handling Events. We can
+// implement event delegation, actually binding the event to an ancestor element that
+// never changes. In this case, we'll attach the click handler to the <body> element,
+// using .on() to catch our clicks that way:

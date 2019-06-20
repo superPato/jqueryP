@@ -95,7 +95,7 @@ $(document).ready(function () {
     });
 
 
-    $('h3.term').click(function () {
+    $('body').on('click', 'h3.term', function () {
         $(this).siblings('.definition').slideToggle();
-    })
+    });
 })
