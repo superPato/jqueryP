@@ -110,3 +110,59 @@ $(document.createElement('script'))
 // Note that the same security cautions hold here as before; whatever the server decides
 // to return to the browser will execute on the user's computer. The JSONP technique
 // should only be used with data coming from a trusted source.
+// 
+// The low-level Ajax method
+// We have seen several methods that all initiate Ajax transactions. Internally, jQuery
+// maps each of these methods onto variants of the $.ajax() global function. Rather
+// than presuming one particular type of Ajax activity, this function accepts an object
+// containing options that can be used to customize its behavior.
+// 
+// Our first example, Listing 6.1, loaded an HTML snippet using $('#dictionary')
+// .load('a.html'). This action could instead be accomplished with $.ajax()
+// as follows:
+// 
+$.ajax({
+	url: 'a.html',
+	success: function(data) {
+		$('#dictionary').html(data);
+	}
+});
+
+// We see here that $.ajax() takes a single object as its argument (or optionally a
+// URL string as its first argument and an object as its second). This settings object
+// has over 30 possible options, offering a great deal of flexibility. A few of the special
+// capabilities that come with using a low-level $.ajax() call include:
+
+// 	• Preventing the browser from caching responses from the server; this can be
+// 	  useful if the server produces its data dynamically
+
+// 	• Suppressing the global handlers (such as ones registered with
+// 	  $.ajaxStart()) that are normally triggered by all Ajax interactions
+
+// 	• Providing a username and password for authentication with the remote host
+// 	
+// 	
+// Modifying default options
+// The $.ajaxSetup() function allows us to specify default values for each of the
+// options used when Ajax methods are called. It takes an object with options identical
+// to the ones available to $.ajax() itself and causes these values to be used on all
+// subsequent Ajax requests unless overridden.
+
+$.ajaxSetup({
+	url: 'a.html',
+	type: 'POST',
+	dataType: 'html'
+});
+
+$.ajax({
+	type: 'GET',
+	success: function(data) {
+		$('#dictionary').html(data);
+	}
+});
+
+// This sequence of operations behaves the same as our preceding $.ajax()
+// example. Note that the URL of the request is specified as a default value by the
+// $.ajaxSetup() call, so it does not have to be provided when $.ajax() is invoked.
+// In contrast, the type parameter is given a default value of POST, but this can still be
+// overridden in the $.ajax() call to GET.
