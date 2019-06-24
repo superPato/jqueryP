@@ -71,3 +71,22 @@ $(data).find('entry:has(quote[author])').each(function() {
 // implement event delegation, actually binding the event to an ancestor element that
 // never changes. In this case, we'll attach the click handler to the <body> element,
 // using .on() to catch our clicks that way:
+
+
+
+// To load data from a remote location without server involvement, we have to get a
+// bit sneakier. A popular approach for the case of loading foreign JavaScript files is
+// injecting the <script> tags on demand. Since jQuery can help us insert new DOM
+// elements, it is simple to do this:
+$(document.createElement('script'))
+	.attr('src', 'http://example.com/example.js')
+	.appendTo('head');
+
+// In fact, the $.getScript() method will automatically adapt to this technique if it
+// detects a remote host in its URL argument, so even this is handled for us.
+
+// The browser will execute the loaded script, but there is no mechanism to retrieve
+// results from the script. For this reason, the technique requires cooperation from the
+// remote host. The loaded script must take some action, such as setting a global variable
+// that has an effect on the local environment. Services, which publish scripts that are
+// executable in this way, will also provide an API to interact with the remote script.
