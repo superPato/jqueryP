@@ -90,3 +90,23 @@ $(document.createElement('script'))
 // remote host. The loaded script must take some action, such as setting a global variable
 // that has an effect on the local environment. Services, which publish scripts that are
 // executable in this way, will also provide an API to interact with the remote script.
+// 
+// 
+// 
+// Using JSONP for remote data
+// The JSONP file format consists of a standard JSON file that has been wrapped in
+// parentheses and prepended with an arbitrary text string. This string, the padding,
+// is determined by the client requesting the data. Because of the parentheses, the client
+// can either cause a function to be called or a variable to be set depending on what is
+// sent as the padding string.
+// 
+// We normally would not be allowed to fetch JSON from a remote server (examples.
+// learningjquery.com in this case). However, since this file is set up to provide its
+// data in the JSONP format, we can obtain the data by appending a query string to
+// our URL, using ? as a placeholder for the value of the callback argument. When
+// the request is made, jQuery replaces the ? placeholder for us, parses the result, and
+// passes it to the success function as data, just as if this were a local JSON request.
+// 
+// Note that the same security cautions hold here as before; whatever the server decides
+// to return to the browser will execute on the user's computer. The JSONP technique
+// should only be used with data coming from a trusted source.
