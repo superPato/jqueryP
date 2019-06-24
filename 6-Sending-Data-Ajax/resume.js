@@ -166,3 +166,12 @@ $.ajax({
 // $.ajaxSetup() call, so it does not have to be provided when $.ajax() is invoked.
 // In contrast, the type parameter is given a default value of POST, but this can still be
 // overridden in the $.ajax() call to GET.
+// 
+// 
+// Loading parts of an HTML page
+// To remove these extraneous bits, we can use another feature of the .load() method.
+// When specifying the URL of the document to load, we can also provide a jQuery
+// selector expression. If present, this expression is used to locate a portion of the
+// loaded document. Only the matched part of the document is inserted into the page.
+// In this case, we can use this technique to pull only the dictionary entries from the
+// document and insert them:

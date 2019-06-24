@@ -128,4 +128,10 @@ $(document).ready(function () {
             $('#dictionary').html(html);
         });
     });
+
+    // Loading parts of an HTML page
+    $('#letter-h a').click(function (event) {
+        event.preventDefault();
+        $('#dictionary').load('h.html .entry');
+    });
 })
