@@ -1,5 +1,38 @@
 $(document).ready(function () {
 
+    // Exercise 1
+    // $('#dictionary').load('exercises-content.html .letter');
+
+    // Exercise 2
+    // $('.letter a').hover(function () {
+    //     var $linkSelected = $(this);
+    //     var letter = $linkSelected.parent().parent().attr('id');
+
+    //     $('#dictionary').load('exercises-content.html #' + letter);
+
+    // }, function () {
+    //     $('#dictionary').html('');
+    // });
+
+    // Exercise 3 
+    // $('#dictionary').load('doesnt-exist.html .letter', function (data, status, jqXHR) {
+    //     $(this).html(jqXHR.responseText);
+    // });
+
+    // Exercise 4
+    $.getJSON('https://api.github.com/users/jquery/repos?callback=?', function (response) {
+        var html = '';
+        $.each(response.data, function (entryIndex, entry) {
+            html += '<div class="entry">';
+            html += '<h3 class="term">' + entry.name + '</h3>';
+            html += '<div class="part">' + entry.owner.type + '</div>';
+            html += '<div class="definition">' + entry.description + '</div>';
+            html += '</div>';
+        });
+
+        $('#dictionary').html(html);
+    });
+
     var $loading = $('<div id="loading">Loading...</div>')
         .insertBefore('#dictionary');
 
